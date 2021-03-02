@@ -1,20 +1,22 @@
 package com.soil;
 
-public class Teores{
-  public void calculaFosforo(){
-    Fosforo f = new Fosforo();
+public class Teores extends App{
+  public double calculaFosforo(){
+    Fosforo p = new Fosforo();
 
-    f.setTextureK(1);
-    if(f.getTextureK() == 1){
-      f.setValFosforo(9.00);
-    } else if(f.getTextureK() == 2){
-      f.setValFosforo(12.00);
+    p.setTextureK(1);
+    if(p.getTextureK() == 1){
+      p.setValFosforo(9.00);
+    } else if(p.getTextureK() == 2){
+      p.setValFosforo(12.00);
     }
 
-    System.out.println(f.getValFosforo());
+    System.out.println(p.getValFosforo());
+
+    return p.getValFosforo();
   }
 
-  public void calculaPotassio(){
+  public double calculaPotassio(){
     Potassio k = new Potassio();
 
     k.setTextureK(1);
@@ -25,5 +27,22 @@ public class Teores{
     }
 
     System.out.println(k.getValPotassio());
+
+    return k.getValPotassio();
+  }
+
+  public double calculaCalcio(){
+    Calcio ca = new Calcio();
+
+    ca.setTextureK(1);
+    if(ca.getTextureK() == 1){
+      ca.setValCalcio(6);
+    } else if(ca.getTextureK() == 2){
+      ca.setValCalcio(4);
+    }
+
+    System.out.println(ca.getValCalcio());
+
+    return ca.getValCalcio();
   }
 }

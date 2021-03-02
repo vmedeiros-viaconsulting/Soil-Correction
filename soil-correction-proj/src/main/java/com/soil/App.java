@@ -1,9 +1,14 @@
 package com.soil;
 
-public class App extends Teores{
+public class App{
     public static void main( String[] args ){
         Teores t = new Teores();
-        t.calculaFosforo();
-        t.calculaPotassio();
+        double teorFosforo, teorPotassio, teorCalcio;
+
+        teorFosforo = t.calculaFosforo();
+        teorPotassio = t.calculaPotassio();
+        teorCalcio = t.calculaCalcio();
+
+        System.out.println(teorFosforo);
     }
 }

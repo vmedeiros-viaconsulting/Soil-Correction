@@ -1,6 +1,6 @@
 package com.soil;
 
-public class Fosforo extends Teores{
+public class Fosforo extends CalculaTeores{
   private double valFosforo;
   private int textureK;
 

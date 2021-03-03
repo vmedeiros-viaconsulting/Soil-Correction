@@ -54,15 +54,15 @@ public class TeoresIdeais extends App{
   }
 
   public double teorIdealEnxofre(){
-    Enxofre mg = new Enxofre();
+    Enxofre s = new Enxofre();
 
-    mg.setTextureK(1);
-    if(mg.getTextureK() == 1){
-      mg.setValEnxofre(9.0);
-    } else if(mg.getTextureK() == 2){
-      mg.setValEnxofre(6.0);
+    s.setTextureK(1);
+    if(s.getTextureK() == 1){
+      s.setValEnxofre(9.0);
+    } else if(s.getTextureK() == 2){
+      s.setValEnxofre(6.0);
     }
 
-    return mg.getValEnxofre();
+    return s.getValEnxofre();
   }
 }

@@ -1,6 +1,6 @@
 package com.soil;
 
-public class Magnesio extends CalculaTeores{
+public class Magnesio extends TeoresIdeais{
   private double valMagnesio;
   private int textureK;
 

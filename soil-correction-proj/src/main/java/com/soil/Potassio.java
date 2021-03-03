@@ -1,6 +1,6 @@
 package com.soil;
 
-public class Potassio extends CalculaTeores{
+public class Potassio extends TeoresIdeais{
   private double valPotassio;
   private int textureK;
 

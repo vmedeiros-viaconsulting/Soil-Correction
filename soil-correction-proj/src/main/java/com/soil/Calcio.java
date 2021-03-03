@@ -1,6 +1,6 @@
 package com.soil;
 
-public class Calcio extends CalculaTeores{
+public class Calcio extends TeoresIdeais{
   private double valCalcio;
   private int textureK;
 

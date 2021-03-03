@@ -65,4 +65,24 @@ public class TeoresIdeais extends App{
 
     return s.getValEnxofre();
   }
+
+  public void imprimeTeoresIdeais(double arr[]){
+    for(int i = 0; i < arr.length; i++){
+      if(i == 0){
+        System.out.printf("Teor ideal do fósforo: %.2f\n", arr[i]);
+      } else if(i == 1){
+        System.out.printf("Teor ideal do potássio: %.2f\n", arr[i]);
+      } else if(i == 2){
+        System.out.printf("Teor ideal de cálcio: %.2f\n",arr[i]);
+      } else if(i == 3){
+        System.out.printf("Teor ideal de magnésio: %.2f\n",arr[i]);
+      } else if(i == 4){
+        System.out.printf("Teor ideal de enxofre: %.2f\n", arr[i]);
+      } else if(i == 5){
+        System.out.printf("Teor ideal de alumínio: %.2f\n", arr[i]);
+      } else{
+        System.out.println("Erro");
+      }
+    }
+  }
 }

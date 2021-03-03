@@ -30,4 +30,18 @@ public class Soma extends App{
 
     return v;
   }
+
+  public void imprimeSomas(double arr[]){
+    for(int i = 0; i < arr.length; i++){
+      if(i == 0){
+        System.out.printf("S cmol: %.2f\n", arr[i]);
+      }else if(i == 1){
+        System.out.printf("CTC cmol: %.2f\n", arr[i]);
+      }else if(i == 2){
+        System.out.printf("V Atual: %.2f\n", arr[i]);
+      }else{
+        System.out.println("Erro");
+      }
+    }
+  }
 }

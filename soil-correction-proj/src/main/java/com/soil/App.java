@@ -6,7 +6,7 @@ public class App{
         TeoresIdeais t = new TeoresIdeais();
         Soma s = new Soma();
 
-        int indice = 7;
+        int indice = 7, valTexture = 0;
         double[] valores;
         valores = new double[indice];
         recebeValores(valores);
@@ -15,20 +15,22 @@ public class App{
         double teorFosforo, teorPotassio, teorCalcio, teorMagnesio, teorEnxofre, teorAluminio, hl;
         double somaSCmol, somaCtc, v; 
 
-        teorFosforo = t.teorIdealFosforo();
-        teorPotassio = t.teorIdealPotassio();
-        teorCalcio = t.teorIdealCalcio();
-        teorMagnesio = t.teorIdealMagnesio();
-        teorEnxofre = t.teorIdealEnxofre();
+        valTexture = recebeTextura();
+
+        teorFosforo = t.teorIdealFosforo(valTexture);
+        teorPotassio = t.teorIdealPotassio(valTexture);
+        teorCalcio = t.teorIdealCalcio(valTexture);
+        teorMagnesio = t.teorIdealMagnesio(valTexture);
+        teorEnxofre = t.teorIdealEnxofre(valTexture);
         teorAluminio = 0;
 
         double[] teoresIdeais = {teorFosforo, teorPotassio, teorCalcio, teorMagnesio, teorEnxofre, teorAluminio};
 
         t.imprimeTeoresIdeais(teoresIdeais);
 
-        somaSCmol = s.somaCmol(teorPotassio, teorCalcio, teorMagnesio);
-        somaCtc = s.somaCtcCmol(teorPotassio, teorCalcio, teorMagnesio, valores[6]);
-        v = s.vAtual(teorPotassio, teorCalcio, teorMagnesio, valores[6]);
+        somaSCmol = s.somaCmol(valores[1], valores[2], valores[3]);
+        somaCtc = s.somaCtcCmol(valores[1], valores[2], valores[3], valores[6]);
+        v = s.vAtual(valores[1], valores[2], valores[3], valores[6]);
 
         double[] arrSoma = {somaSCmol, somaCtc, v};
         s.imprimeSomas(arrSoma);
@@ -62,6 +64,16 @@ public class App{
         }
         System.out.println(dados.length-1);
         return dados[dados.length-1];
+    }
+
+    public static int recebeTextura(){
+        int textura;
+        Scanner ler = new Scanner(System.in);
+
+        System.out.println("Informe o valor da textura: ");
+        textura = ler.nextInt();
+
+        return textura;
     }
 
     public static void imprimeValores(double dados[]){

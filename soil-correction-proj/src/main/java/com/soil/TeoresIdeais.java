@@ -1,67 +1,87 @@
 package com.soil;
 
 public class TeoresIdeais extends App{
-  public double teorIdealFosforo(){
+  public double teorIdealFosforo(int textura){
     Fosforo p = new Fosforo();
 
-    p.setTextureK(1);
-    if(p.getTextureK() == 1){
-      p.setValFosforo(9.00);
-    } else if(p.getTextureK() == 2){
-      p.setValFosforo(12.00);
-    }
+    do{
+      p.setTextureK(textura);
+      if(p.getTextureK() == 1){
+        p.setValFosforo(9.00);
+      } else if(p.getTextureK() == 2){
+        p.setValFosforo(12.00);
+      } else{
+        error();
+      }
+    }while(!(textura == 1 || textura == 2));
 
     return p.getValFosforo();
   }
 
-  public double teorIdealPotassio(){
+  public double teorIdealPotassio(int textura){
     Potassio k = new Potassio();
 
-    k.setTextureK(1);
-    if(k.getTextureK() == 1){
-      k.setValPotassio(0.35);
-    } else if(k.getTextureK() == 2){
-      k.setValPotassio(0.25);
-    }
+    do{
+      k.setTextureK(textura);
+      if(k.getTextureK() == 1){
+        k.setValPotassio(0.35);
+      } else if(k.getTextureK() == 2){
+        k.setValPotassio(0.25);
+      } else{
+        error();
+      }
+    }while(!(textura == 1 || textura == 2));
 
     return k.getValPotassio();
   }
 
-  public double teorIdealCalcio(){
+  public double teorIdealCalcio(int textura){
     Calcio ca = new Calcio();
 
-    ca.setTextureK(1);
-    if(ca.getTextureK() == 1){
-      ca.setValCalcio(6.0);
-    } else if(ca.getTextureK() == 2){
-      ca.setValCalcio(4.0);
-    }
+    do{
+      ca.setTextureK(textura);
+      if(ca.getTextureK() == 1){
+        ca.setValCalcio(6.0);
+      } else if(ca.getTextureK() == 2){
+        ca.setValCalcio(4.0);
+      } else{
+        error();
+      }
+    }while(!(textura == 1 || textura == 2));
 
     return ca.getValCalcio();
   }
 
-  public double teorIdealMagnesio(){
+  public double teorIdealMagnesio(int textura){
     Magnesio mg = new Magnesio();
 
-    mg.setTextureK(1);
-    if(mg.getTextureK() == 1){
-      mg.setValMagnesio(1.5);
-    } else if(mg.getTextureK() == 2){
-      mg.setValMagnesio(1.0);
-    }
+    do{
+      mg.setTextureK(textura);
+      if(mg.getTextureK() == 1){
+        mg.setValMagnesio(1.5);
+      } else if(mg.getTextureK() == 2){
+        mg.setValMagnesio(1.0);
+      } else{
+        error();
+      }
+    }while(!(textura == 1 || textura == 2));  
 
     return mg.getValMagnesio();
   }
 
-  public double teorIdealEnxofre(){
+  public double teorIdealEnxofre(int textura){
     Enxofre s = new Enxofre();
 
-    s.setTextureK(1);
-    if(s.getTextureK() == 1){
-      s.setValEnxofre(9.0);
-    } else if(s.getTextureK() == 2){
-      s.setValEnxofre(6.0);
-    }
+    do{
+      s.setTextureK(textura);
+      if(s.getTextureK() == 1){
+        s.setValEnxofre(9.0);
+      } else if(s.getTextureK() == 2){
+        s.setValEnxofre(6.0);
+      } else{
+        error();
+      }
+    }while(!(textura == 1 || textura == 2));
 
     return s.getValEnxofre();
   }
@@ -81,8 +101,12 @@ public class TeoresIdeais extends App{
       } else if(i == 5){
         System.out.printf("Teor ideal de alumínio: %.2f\n", arr[i]);
       } else{
-        System.out.println("Erro");
+        error();
       }
     }
+  }
+
+  public void error(){
+    System.out.println("Erro");
   }
 }

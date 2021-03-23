@@ -1,6 +1,6 @@
 package com.soil;
 
-public class Soma extends App{
+public class Soma extends SoilCorrection{
   public double somaCmol(double teorPotassio, double teorCalcio, double teorMagnesio){
     double sCmol;
     
@@ -29,19 +29,5 @@ public class Soma extends App{
     v = ((100*(teorPotassio + teorCalcio + teorMagnesio))/(teorPotassio + teorCalcio + teorMagnesio + hl));
 
     return v;
-  }
-
-  public void imprimeSomas(double arr[]){
-    for(int i = 0; i < arr.length; i++){
-      if(i == 0){
-        System.out.printf("S cmol: %.2f\n", arr[i]);
-      }else if(i == 1){
-        System.out.printf("CTC cmol: %.2f\n", arr[i]);
-      }else if(i == 2){
-        System.out.printf("V Atual: %.2f\n", arr[i]);
-      }else{
-        System.out.println("Erro");
-      }
-    }
   }
 }

@@ -5,14 +5,7 @@ public class SoilCorrection{
   private int texture, fonteCorretivo;
 
   public static void main( String[] args ){
-    SoilCorrection s = new SoilCorrection();
-    Soma o = new Soma();
-    
-    double somaSCmol, somaCtc, v; 
-
-    somaSCmol = o.somaCmol(s.valPotassio, s.valCalcio, s.valMagnesio);
-    somaCtc = o.somaCtcCmol(s.valPotassio, s.valCalcio, s.valMagnesio, 5.35);
-    v = o.vAtual(s.valPotassio, s.valCalcio, s.valMagnesio, 5.35);
+    System.out.println("Bem vindo ao programa de correção de solos!");
   }
 
   public int getTexture(){

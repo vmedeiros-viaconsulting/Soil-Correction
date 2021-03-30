@@ -2,7 +2,7 @@ package com.soil;
 
 public class SoilCorrection{
   private double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
-  private int texture, fonteCorretivo;
+  private int texture;
 
   public static void main( String[] args ){
     System.out.println("Bem vindo ao programa de correção de solos!");
@@ -72,14 +72,6 @@ public class SoilCorrection{
     this.valHl = valHl;
   }
 
-  public int getFonteCorretivo(){
-    return fonteCorretivo;
-  }
-
-  public void setFonteCorretivo(int fonteCorretivo){
-    this.fonteCorretivo = fonteCorretivo;
-  }
-
   public Double valorIdealFosforo(SoilCorrection soil){
     if(soil.texture == 1){
       return 9.0;
@@ -122,9 +114,5 @@ public class SoilCorrection{
 
   public Double valorIdealAluminio(SoilCorrection soil){
     return 0.0;
-  }
-
-  public static void imprimeSoma(double soma){
-    System.out.println(soma);
   }
 }

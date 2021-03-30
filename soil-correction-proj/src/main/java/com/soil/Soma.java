@@ -30,4 +30,22 @@ public class Soma extends SoilCorrection{
 
     return v;
   }
+
+  double calculaMOPercentual(double mo) {
+    if (mo > 0) {
+        return mo / 10;
+        
+    } else {
+        return 0.0;
+    }
+  }
+
+  double calculaCarbono(double moPercentual) {
+    if (moPercentual > 0) {
+        return moPercentual / 1.72 * 10;
+        
+    } else {
+        return 0.0;
+    }
+  }
 }

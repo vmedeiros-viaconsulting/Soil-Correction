@@ -199,4 +199,18 @@ public class SoilCorrectionTest
             Assert.assertEquals(e.getMessage(), "ERROR");
         }
     }
+
+    @Test
+    public void testeMOPercentual() {
+        Soma s = new Soma();
+
+        Assert.assertEquals(3.07, s.calculaMOPercentual(30.7), 1);
+    }
+    
+    @Test
+    public void testeCalculaCarbono() {
+        Soma s = new Soma();
+
+        Assert.assertEquals(17.848837209302324, s.calculaCarbono(s.calculaMOPercentual(30.7)), 1);
+    }
 }

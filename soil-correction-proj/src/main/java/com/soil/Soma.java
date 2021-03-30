@@ -57,7 +57,7 @@ public class Soma extends SoilCorrection{
     }
   }
 
-  double calculoSuperfosfatoSimples(double fonteFosforo, double quantidadeAplicar, double teorCalculo){
+  double calculoSuperfosfatoSimples(int fonteFosforo, double quantidadeAplicar, double teorCalculo){
     if(fonteFosforo == 5){
       return quantidadeAplicar*0.15;
     }else if(fonteFosforo == 1){
@@ -66,6 +66,36 @@ public class Soma extends SoilCorrection{
       return teorCalculo*0.11/2.42;
     }else{
       return 0;
+    }
+  }
+
+  double calculoEnxofre(int fonteFosforo, double quantidadeAplicar){
+    if(fonteFosforo == 1){
+      return quantidadeAplicar*0.28;
+    }else if(fonteFosforo == 2){
+      return quantidadeAplicar*0.2;
+    }else if(fonteFosforo == 3){
+      return quantidadeAplicar*0.09;
+    }else if(fonteFosforo == 4){
+      return quantidadeAplicar*0.16;
+    }else if(fonteFosforo == 5){
+      return quantidadeAplicar*0.28;
+    }else if(fonteFosforo == 6){
+      return quantidadeAplicar*0.52;
+    }else if(fonteFosforo == 7){
+      return quantidadeAplicar*0.52;
+    }else if(fonteFosforo == 8){
+      return quantidadeAplicar*0.45;
+    }else if(fonteFosforo == 9){
+      return quantidadeAplicar*0.28;
+    }else if(fonteFosforo == 10){
+      return quantidadeAplicar*0.44;
+    }else if(fonteFosforo == 11){
+      return quantidadeAplicar*0.0;
+    }else if(fonteFosforo == 12){
+      return quantidadeAplicar*0.18;
+    }else{
+      return 0.0;
     }
   }
 }

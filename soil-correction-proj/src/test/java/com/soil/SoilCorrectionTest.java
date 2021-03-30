@@ -239,6 +239,21 @@ public class SoilCorrectionTest
 
         double result = ((soil.ssTeor(soil))*2*2.29*100/soil.getEficienciaFosforo()/100)*100/soil.valorFonteFosforo(soil)*2.42;
         
-       Assert.assertEquals(12.4, s.calculoSuperfosfatoSimples(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), result), 1);  
+        Assert.assertEquals(12.4, s.calculoSuperfosfatoSimples(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), result), 1);  
     }
+
+    @Test
+    public void testeCalculoEnxofre(){
+        SoilCorrection soil = new SoilCorrection();
+        Soma s = new Soma();
+
+        soil.setTeorFosforoAtingir(12.0);
+        soil.setValFosforo(8.59);
+        soil.setFonteFosforo(1);
+        soil.setEficienciaFosforo(0.7);
+
+        Assert.assertEquals(34.7, s.calculoEnxofre(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil))), 1);
+    }
+
+    
 }

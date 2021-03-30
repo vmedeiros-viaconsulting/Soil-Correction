@@ -128,4 +128,10 @@ public class Soma extends SoilCorrection{
       return 0.0;
     }
   }
+
+  double participacaoPotassioCTC(double teorPotassio, double teorCalcio, double teorMagnesio, double teorHAl){
+    return teorPotassio/(teorCalcio+teorMagnesio+teorPotassio+teorHAl)*100;
+  }
+
+  double calculoQtdAplicarPotassio()
 }

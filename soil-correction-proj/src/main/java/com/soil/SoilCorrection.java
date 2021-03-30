@@ -73,6 +73,30 @@ public class SoilCorrection{
     this.valHl = valHl;
   }
 
+  public void setTeorFosforoAtingir(double teorFosforoAtingir){
+    this.teorFosforoAtingir = teorFosforoAtingir;
+  }
+
+  public Double getTeorFosforoAtingir(){
+    return teorFosforoAtingir;
+  }
+
+  public void setEficienciaFosforo(double eficienciaFosforo){
+    this.eficienciaFosforo = eficienciaFosforo;
+  }
+
+  public Double getEficienciaFosforo(){
+    return eficienciaFosforo;
+  }
+
+  public void setFonteFosforo(int fonteFosforo){
+    this.fonteFosforo = fonteFosforo;
+  }
+
+  public int getfonteFosforo(){
+    return fonteFosforo;
+  }
+
   public Double valorIdealFosforo(SoilCorrection soil){
     if(soil.texture == 1){
       return 9.0;
@@ -155,28 +179,26 @@ public class SoilCorrection{
     }
   }
 
-  // Parte 2
-  public void setTeorFosforoAtingir(double teorFosforoAtingir){
-    this.teorFosforoAtingir = teorFosforoAtingir;
+  public Double participacaoPotassioCTCIdeal(SoilCorrection soil){
+    if(soil.texture == 1){
+      return 3.0;
+    }else{
+      return 3.0;
+    }
   }
 
-  public Double getTeorFosforoAtingir(){
-    return teorFosforoAtingir;
+  public Double participacaoPotassioCTC(double teorPotassio, double teorCalcio, double teorMagnesio, double teorHAl){
+    return teorPotassio/(teorCalcio+teorMagnesio+teorPotassio+teorHAl)*100;
   }
 
-  public void setEficienciaFosforo(double eficienciaFosforo){
-    this.eficienciaFosforo = eficienciaFosforo;
+  public Double verificaParticipacaoPotassio(SoilCorrection soil){
+    double result = (soil.valPotassio * soil.participacaoPotassioCTCIdeal(soil)/soil.participacaoPotassioCTC(soil.valPotassio, soil.valCalcio, soil.valMagnesio, soil.valHl))-soil.valPotassio;
+
+    if(result < 0.01){
+      return 0.0;
+    }else{
+      return result;
+    }
   }
 
-  public Double getEficienciaFosforo(){
-    return eficienciaFosforo;
-  }
-
-  public void setFonteFosforo(int fonteFosforo){
-    this.fonteFosforo = fonteFosforo;
-  }
-
-  public int getfonteFosforo(){
-    return fonteFosforo;
-  }
 }

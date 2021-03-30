@@ -268,5 +268,26 @@ public class SoilCorrectionTest
         Assert.assertEquals(156.18, s.calculaCusto(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), 1260.0), 1);
     }
 
+    @Test
+    public void testParticipacaoPotassioCTC(){
+        SoilCorrection soil = new SoilCorrection();
+
+        soil.setValPotassio(0.15);
+        soil.setValCalcio(5.76);
+        soil.setValMagnesio(1.63);
+        soil.setValHl(5.35);
+
+        Assert.assertEquals(1.2, soil.participacaoPotassioCTC(soil.getValPotassio(), soil.getValCalcio(), soil.getValMagnesio(), soil.getValHl()), 1);
+    }
+
+    @Test
+    public void testParticipacaoPotassioCTCIdeal(){
+        SoilCorrection soil = new SoilCorrection();
+        
+        soil.setTexture(1);
+
+        Assert.assertEquals(3.0, soil.participacaoPotassioCTCIdeal(soil), 0);
+    }
+
 
 }

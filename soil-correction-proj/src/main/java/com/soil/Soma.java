@@ -48,4 +48,12 @@ public class Soma extends SoilCorrection{
         return 0.0;
     }
   }
+
+  double calculoQuantidadeAplicar(double teorFosforoAtingir, double teorFosforo, double eficienciaFosforo, double fonteFosforo, double result){
+    if((teorFosforoAtingir-teorFosforo) < 0.01){
+      return 0;
+    }else{
+      return ((((teorFosforoAtingir - teorFosforo)*2*2.29)*100/eficienciaFosforo/100)*100/result);
+    }
+  }
 }

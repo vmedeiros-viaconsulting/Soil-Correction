@@ -213,4 +213,17 @@ public class SoilCorrectionTest
 
         Assert.assertEquals(17.848837209302324, s.calculaCarbono(s.calculaMOPercentual(30.7)), 1);
     }
+
+    @Test
+    public void testeQuantidadeAplicar(){
+        SoilCorrection soil = new SoilCorrection();
+        Soma s = new Soma();
+
+        soil.setTeorFosforoAtingir(12.0);
+        soil.setValFosforo(8.59);
+        soil.setFonteFosforo(1);
+        soil.setEficienciaFosforo(0.7);
+        
+        Assert.assertEquals(123.95, s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), 1);
+    }
 }

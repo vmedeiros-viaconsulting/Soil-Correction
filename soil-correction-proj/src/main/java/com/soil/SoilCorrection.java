@@ -2,7 +2,8 @@ package com.soil;
 
 public class SoilCorrection{
   private double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
-  private int texture;
+  private double eficienciaFosforo, teorFosforoAtingir;
+  private int texture, fonteFosforo;
 
   public static void main( String[] args ){
     System.out.println("Bem vindo ao programa de correção de solos!");
@@ -114,5 +115,59 @@ public class SoilCorrection{
 
   public Double valorIdealAluminio(SoilCorrection soil){
     return 0.0;
+  }
+
+  public Double valorFonteFosforo(SoilCorrection soil){
+    if(soil.fonteFosforo == 1){
+      return 18.0;
+    }else if(soil.fonteFosforo == 2){
+      return 41.0;
+    }else if(soil.fonteFosforo == 3){
+      return 48.0;
+    }else if(soil.fonteFosforo == 4){
+      return 45.0;
+    }else if(soil.fonteFosforo == 5){
+      return 18.0;
+    }else if(soil.fonteFosforo == 6){
+      return 33.0;
+    }else if(soil.fonteFosforo == 7){
+      return 29.0;
+    }else if(soil.fonteFosforo == 8){
+      return 32.0;
+    }else if(soil.fonteFosforo == 9){
+      return 24.0;
+    }else if(soil.fonteFosforo == 10){
+      return 18.5;
+    }else if(soil.fonteFosforo == 11){
+      return 52.0;
+    }else if(soil.fonteFosforo == 12){
+      return 18.0;
+    }
+    return eficienciaFosforo;
+  }
+
+  // Parte 2
+  public void setTeorFosforoAtingir(double teorFosforoAtingir){
+    this.teorFosforoAtingir = teorFosforoAtingir;
+  }
+
+  public Double getTeorFosforoAtingir(){
+    return teorFosforoAtingir;
+  }
+
+  public void setEficienciaFosforo(double eficienciaFosforo){
+    this.eficienciaFosforo = eficienciaFosforo;
+  }
+
+  public Double getEficienciaFosforo(){
+    return eficienciaFosforo;
+  }
+
+  public void setFonteFosforo(int fonteFosforo){
+    this.fonteFosforo = fonteFosforo;
+  }
+
+  public int getfonteFosforo(){
+    return fonteFosforo;
   }
 }

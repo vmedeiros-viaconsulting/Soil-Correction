@@ -222,7 +222,4 @@ public class SoilCorrection{
       return 0.0;
     }
   }
-
-
-
 }

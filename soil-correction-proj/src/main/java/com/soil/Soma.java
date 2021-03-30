@@ -134,4 +134,16 @@ public class Soma extends SoilCorrection{
 
     return result;
   }
+
+  double calculoKgHectare(int fontePotassioUtilizar, double quantidadeAplicarPotassio){
+    if(fontePotassioUtilizar == 1){
+      return 0;
+    }else if(fontePotassioUtilizar == 2){
+      return quantidadeAplicarPotassio*0.17;
+    }else if(fontePotassioUtilizar == 3){
+      return quantidadeAplicarPotassio*0.22;
+    }else{
+      return 0;
+    }
+  }
 }

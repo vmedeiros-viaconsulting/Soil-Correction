@@ -320,4 +320,18 @@ public class SoilCorrectionTest
         Assert.assertEquals(0, s.calculoKgHectare(soil.getFontePotassioUtilizar(), s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil))), 1);
     }
 
+    @Test
+    public void testCalculoCustoPotassio(){
+        SoilCorrection soil = new SoilCorrection();
+        Soma s = new Soma();
+
+        soil.setTexture(1);
+        soil.setFontePotassioUtilizar(1);
+        soil.setValPotassio(0.15);
+        soil.setValCalcio(5.76);
+        soil.setValMagnesio(1.63);
+        soil.setValHl(5.35);
+
+        Assert.assertEquals(1126.37, s.calculaCustoPotassio(soil.getFontePotassioUtilizar(), 2500.00, s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil))), 1);
+    }
 }

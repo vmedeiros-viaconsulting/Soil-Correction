@@ -146,4 +146,16 @@ public class Soma extends SoilCorrection{
       return 0;
     }
   }
+
+  double calculaCustoPotassio(int fontePotassioUtilizar, double valor, double quantidadeAplicarPotassio){
+    if(fontePotassioUtilizar == 1){
+      return valor*quantidadeAplicarPotassio/1000;
+    }else if(fontePotassioUtilizar == 2){
+      return valor*quantidadeAplicarPotassio/1000;
+    }else if(fontePotassioUtilizar == 3){
+      return valor*quantidadeAplicarPotassio/1000;
+    }else{
+      return 0;
+    }
+  }
 }

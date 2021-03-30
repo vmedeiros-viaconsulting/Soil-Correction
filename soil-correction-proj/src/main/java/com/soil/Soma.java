@@ -98,4 +98,34 @@ public class Soma extends SoilCorrection{
       return 0.0;
     }
   }
+
+  double calculaCusto(int fonteFosforo, double quantidadeAplicar, double valor){
+    if(fonteFosforo == 1){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 2){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 3){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 4){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 5){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 6){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 7){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 8){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 9){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 10){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 11){
+      return valor*quantidadeAplicar/1000;
+    }else if(fonteFosforo == 12){
+      return valor*quantidadeAplicar/1000;
+    }else{
+      return 0.0;
+    }
+  }
 }

@@ -255,5 +255,18 @@ public class SoilCorrectionTest
         Assert.assertEquals(34.7, s.calculoEnxofre(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil))), 1);
     }
 
-    
+    @Test
+    public void testeCalculoCusto(){
+        SoilCorrection soil = new SoilCorrection();
+        Soma s = new Soma();
+
+        soil.setTeorFosforoAtingir(12.0);
+        soil.setValFosforo(8.59);
+        soil.setFonteFosforo(1);
+        soil.setEficienciaFosforo(0.7);
+
+        Assert.assertEquals(156.18, s.calculaCusto(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), 1260.0), 1);
+    }
+
+
 }

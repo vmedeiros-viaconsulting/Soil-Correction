@@ -146,6 +146,15 @@ public class SoilCorrection{
     return eficienciaFosforo;
   }
 
+  // EQQ72
+  public Double ssTeor(SoilCorrection soil){
+    if((soil.teorFosforoAtingir - soil.valFosforo) < 0.01){
+      return 0.0;
+    }else{
+      return soil.teorFosforoAtingir - soil.valFosforo;
+    }
+  }
+
   // Parte 2
   public void setTeorFosforoAtingir(double teorFosforoAtingir){
     this.teorFosforoAtingir = teorFosforoAtingir;

@@ -56,4 +56,16 @@ public class Soma extends SoilCorrection{
       return ((((teorFosforoAtingir - teorFosforo)*2*2.29)*100/eficienciaFosforo/100)*100/result);
     }
   }
+
+  double calculoSuperfosfatoSimples(double fonteFosforo, double quantidadeAplicar, double teorCalculo){
+    if(fonteFosforo == 5){
+      return quantidadeAplicar*0.15;
+    }else if(fonteFosforo == 1){
+      return teorCalculo*0.1/2.42;
+    }else if(fonteFosforo == 12){
+      return teorCalculo*0.11/2.42;
+    }else{
+      return 0;
+    }
+  }
 }

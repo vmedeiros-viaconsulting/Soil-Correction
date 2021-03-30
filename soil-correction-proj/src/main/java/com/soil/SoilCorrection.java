@@ -3,7 +3,7 @@ package com.soil;
 public class SoilCorrection{
   private double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
   private double eficienciaFosforo, teorFosforoAtingir;
-  private int texture, fonteFosforo;
+  private int texture, fonteFosforo, fontePotassioUtilizar;
 
   public static void main( String[] args ){
     System.out.println("Bem vindo ao programa de correção de solos!");
@@ -95,6 +95,14 @@ public class SoilCorrection{
 
   public int getfonteFosforo(){
     return fonteFosforo;
+  }
+
+  public void setFontePotassioUtilizar(int fontePotassioUtilizar){
+    this.fontePotassioUtilizar = fontePotassioUtilizar;
+  }
+
+  public int getFontePotassioUtilizar(){
+    return fontePotassioUtilizar;
   }
 
   public Double valorIdealFosforo(SoilCorrection soil){
@@ -200,5 +208,21 @@ public class SoilCorrection{
       return result;
     }
   }
+
+  public Double valorFontePotassioUtilizar(SoilCorrection soil){
+    if(soil.fontePotassioUtilizar == 1){
+      return 58.0;
+    }else if(soil.fontePotassioUtilizar == 2){
+      return 52.0;
+    }else if(soil.fontePotassioUtilizar == 3){
+      return 22.0;
+    }else if(soil.fontePotassioUtilizar == 4){
+      return 44.0;
+    }else{
+      return 0.0;
+    }
+  }
+
+
 
 }

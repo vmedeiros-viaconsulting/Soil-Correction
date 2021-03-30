@@ -289,5 +289,20 @@ public class SoilCorrectionTest
         Assert.assertEquals(3.0, soil.participacaoPotassioCTCIdeal(soil), 0);
     }
 
+    @Test
+    public void testQuantidadeAplicadaPotassio(){
+        SoilCorrection soil = new SoilCorrection();
+        Soma s = new Soma();
+        
+        soil.setTexture(1);
+        soil.setFontePotassioUtilizar(1);
+        soil.setValPotassio(0.15);
+        soil.setValCalcio(5.76);
+        soil.setValMagnesio(1.63);
+        soil.setValHl(5.35);
+
+        Assert.assertEquals(450.55, s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil)), 1);
+    }
+
 
 }

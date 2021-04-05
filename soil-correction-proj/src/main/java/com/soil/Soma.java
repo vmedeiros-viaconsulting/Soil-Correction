@@ -1,6 +1,7 @@
 package com.soil;
 
 public class Soma extends SoilCorrection{
+  private double[] multiplicadorCalcEnxofre = {0.28, 0.2, 0.09, 0.16, 0.28, 0.52, 0.52, 0.45, 0.28, 0.44, 0.0, 0.18};
   public double somaCmol(double teorPotassio, double teorCalcio, double teorMagnesio){
     double sCmol;
     
@@ -69,64 +70,16 @@ public class Soma extends SoilCorrection{
     }
   }
 
+  public enum EnxofreCalc{
+    PRIMEIRO, SEGUNDO, TERCEIRO, QUARTO, QUINTO, SEXTO, SETIMO, OITAVO, NONO, DECIMO, DECIMOP, DECIMOS
+  };
+
   double calculoEnxofre(int fonteFosforo, double quantidadeAplicar){
-    if(fonteFosforo == 1){
-      return quantidadeAplicar*0.28;
-    }else if(fonteFosforo == 2){
-      return quantidadeAplicar*0.2;
-    }else if(fonteFosforo == 3){
-      return quantidadeAplicar*0.09;
-    }else if(fonteFosforo == 4){
-      return quantidadeAplicar*0.16;
-    }else if(fonteFosforo == 5){
-      return quantidadeAplicar*0.28;
-    }else if(fonteFosforo == 6){
-      return quantidadeAplicar*0.52;
-    }else if(fonteFosforo == 7){
-      return quantidadeAplicar*0.52;
-    }else if(fonteFosforo == 8){
-      return quantidadeAplicar*0.45;
-    }else if(fonteFosforo == 9){
-      return quantidadeAplicar*0.28;
-    }else if(fonteFosforo == 10){
-      return quantidadeAplicar*0.44;
-    }else if(fonteFosforo == 11){
-      return quantidadeAplicar*0.0;
-    }else if(fonteFosforo == 12){
-      return quantidadeAplicar*0.18;
-    }else{
-      return 0.0;
-    }
+    return quantidadeAplicar*multiplicadorCalcEnxofre[fonteFosforo-1];
   }
 
   double calculaCusto(int fonteFosforo, double quantidadeAplicar, double valor){
-    if(fonteFosforo == 1){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 2){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 3){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 4){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 5){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 6){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 7){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 8){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 9){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 10){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 11){
-      return valor*quantidadeAplicar/1000;
-    }else if(fonteFosforo == 12){
-      return valor*quantidadeAplicar/1000;
-    }else{
-      return 0.0;
-    }
+    return valor*quantidadeAplicar/1000;
   }
 
   double calculoQtdAplicarPotassio(double valPotassioVerificado, double valFontePotassioUtilizar){
@@ -148,14 +101,6 @@ public class Soma extends SoilCorrection{
   }
 
   double calculaCustoPotassio(int fontePotassioUtilizar, double valor, double quantidadeAplicarPotassio){
-    if(fontePotassioUtilizar == 1){
-      return valor*quantidadeAplicarPotassio/1000;
-    }else if(fontePotassioUtilizar == 2){
-      return valor*quantidadeAplicarPotassio/1000;
-    }else if(fontePotassioUtilizar == 3){
-      return valor*quantidadeAplicarPotassio/1000;
-    }else{
-      return 0;
-    }
+    return valor*quantidadeAplicarPotassio/1000;
   }
 }

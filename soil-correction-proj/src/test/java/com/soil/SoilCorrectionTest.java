@@ -201,6 +201,7 @@ public class SoilCorrectionTest
         }
     }
 
+    // Teste MOPercentual desenvolvido pelo professor Gabriel Costa Silva
     @Test
     public void testeMOPercentual() {
         Soma s = new Soma();
@@ -208,6 +209,7 @@ public class SoilCorrectionTest
         Assert.assertEquals(3.07, s.calculaMOPercentual(30.7), 1);
     }
     
+    // Teste CalculaCarbono desenvolvido pelo professor Gabriel Costa Silva
     @Test
     public void testeCalculaCarbono() {
         Soma s = new Soma();

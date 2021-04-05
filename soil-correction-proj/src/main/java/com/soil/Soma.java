@@ -32,6 +32,7 @@ public class Soma extends SoilCorrection{
     return v;
   }
 
+  // Função calculaMOPercentual desenvolvida pelo professor Gabriel Costa Silva
   double calculaMOPercentual(double mo) {
     if (mo > 0) {
         return mo / 10;
@@ -41,6 +42,7 @@ public class Soma extends SoilCorrection{
     }
   }
 
+  // Função calculaCarbono desenvolvida pelo professor Gabriel Costa Silva
   double calculaCarbono(double moPercentual) {
     if (moPercentual > 0) {
         return moPercentual / 1.72 * 10;

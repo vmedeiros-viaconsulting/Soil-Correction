@@ -188,16 +188,5 @@ public class SoilCorrection{
 
   public Double valorFontePotassioUtilizar(SoilCorrection soil){
     return soil.fontePotassioUtilizarValores[soil.fontePotassioUtilizar-1];
-    /* if(soil.fontePotassioUtilizar == 1){
-      return 58.0;
-    }else if(soil.fontePotassioUtilizar == 2){
-      return 52.0;
-    }else if(soil.fontePotassioUtilizar == 3){
-      return 22.0;
-    }else if(soil.fontePotassioUtilizar == 4){
-      return 44.0;
-    }else{
-      return 0.0;
-    } */
   }
 }

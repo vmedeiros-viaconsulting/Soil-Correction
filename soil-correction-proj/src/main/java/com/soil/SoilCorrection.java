@@ -79,7 +79,7 @@ public class SoilCorrection{
     this.teorFosforoAtingir = teorFosforoAtingir;
   }
 
-  public Double getTeorFosforoAtingir(){
+  public double getTeorFosforoAtingir(){
     return teorFosforoAtingir;
   }
 
@@ -87,7 +87,7 @@ public class SoilCorrection{
     this.eficienciaFosforo = eficienciaFosforo;
   }
 
-  public Double getEficienciaFosforo(){
+  public double getEficienciaFosforo(){
     return eficienciaFosforo;
   }
 
@@ -107,7 +107,7 @@ public class SoilCorrection{
     return fontePotassioUtilizar;
   }
 
-  public Double valorIdealFosforo(SoilCorrection soil){
+  public double valorIdealFosforo(SoilCorrection soil){
     if(soil.texture == 1){
       return 9.0;
     }else{
@@ -115,7 +115,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorIdealPotassio(SoilCorrection soil){
+  public double valorIdealPotassio(SoilCorrection soil){
     if(soil.texture == 1){
       return 0.35;
     }else{
@@ -123,7 +123,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorIdealCalcio(SoilCorrection soil){
+  public double valorIdealCalcio(SoilCorrection soil){
     if(soil.texture == 1){
       return 6.0;
     }else{
@@ -131,7 +131,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorIdealMagnesio(SoilCorrection soil){
+  public double valorIdealMagnesio(SoilCorrection soil){
     if(soil.texture == 1){
       return 1.5;
     }else{
@@ -139,7 +139,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorIdealEnxofre(SoilCorrection soil){
+  public double valorIdealEnxofre(SoilCorrection soil){
     if(soil.texture == 1){
       return 9.0;
     }else{
@@ -147,16 +147,16 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorIdealAluminio(SoilCorrection soil){
+  public double valorIdealAluminio(SoilCorrection soil){
     return 0.0;
   }
 
-  public Double valorFonteFosforo(SoilCorrection soil){
+  public double valorFonteFosforo(SoilCorrection soil){
     return soil.fonteFosforoValores[soil.fonteFosforo-1];
   }
 
   // EQQ72
-  public Double ssTeor(SoilCorrection soil){
+  public double ssTeor(SoilCorrection soil){
     if((soil.teorFosforoAtingir - soil.valFosforo) < 0.01){
       return 0.0;
     }else{
@@ -164,7 +164,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double participacaoPotassioCTCIdeal(SoilCorrection soil){
+  public double participacaoPotassioCTCIdeal(SoilCorrection soil){
     if(soil.texture == 1){
       return 3.0;
     }else{
@@ -172,11 +172,11 @@ public class SoilCorrection{
     }
   }
 
-  public Double participacaoPotassioCTC(double teorPotassio, double teorCalcio, double teorMagnesio, double teorHAl){
+  public double participacaoPotassioCTC(double teorPotassio, double teorCalcio, double teorMagnesio, double teorHAl){
     return teorPotassio/(teorCalcio+teorMagnesio+teorPotassio+teorHAl)*100;
   }
 
-  public Double verificaParticipacaoPotassio(SoilCorrection soil){
+  public double verificaParticipacaoPotassio(SoilCorrection soil){
     double result = (soil.valPotassio * soil.participacaoPotassioCTCIdeal(soil)/soil.participacaoPotassioCTC(soil.valPotassio, soil.valCalcio, soil.valMagnesio, soil.valHl))-soil.valPotassio;
 
     if(result < 0.01){
@@ -186,7 +186,7 @@ public class SoilCorrection{
     }
   }
 
-  public Double valorFontePotassioUtilizar(SoilCorrection soil){
+  public double valorFontePotassioUtilizar(SoilCorrection soil){
     return soil.fontePotassioUtilizarValores[soil.fontePotassioUtilizar-1];
   }
 }

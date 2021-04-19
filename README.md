@@ -12,7 +12,7 @@ Universidade Tecnológica Federal do Paraná <br />
        1 unique file.
        0 files ignored.
 
-github.com/AlDanial/cloc v 1.88  T=0.02 s (47.9 files/s, 9197.6 lines/s)
+<h4>github.com/AlDanial/cloc v 1.88  T=0.02 s (47.9 files/s, 9197.6 lines/s)</h4>
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------

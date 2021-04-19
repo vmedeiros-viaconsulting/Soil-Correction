@@ -40,11 +40,24 @@ Java                             1             20              2             86
 Número de estruturas condicionais: 18 (if e else)
 Pontos a serem melhorados: Diminuir número de estruturas condicionais e reduzir quantidade de linhas
 </pre>
+<br />
+<hr width=100%>
+<h3>(ii) Problemas identificados</h3><br />
+Como pode-se observar acima, existem muitas linhas dentro das classes, além de algumas estruturas condicionais desnecessárias.
+<br />
 
-Como pode-se observar acima, existem muitas linhas dentro das classes, logo é necessário tentar reduzir um pouco o número delas.
+<hr width=100%>
+<h3>(ii) Problemas identificados</h3><br />
+A solução encontrada para sanar esse problema foi retirar alguns elses desnecessários, ajudando a reduzir o número de linhas também. Além da remoção de um comentário desnecessário na classe <b>SoilCorrection.java</b>.
+<br />
 
+<hr width=100%>
+<h3>(iv) Implementação das soluções</h3><br />
+Commit: #743efb47f315c3877189e36502922216cf6ecfb2<br />
+
+<hr width=100%>
+<h3>(v) Código após as alterações</h3><br />
 <b>Classe SoilCorrection.java após modificações</b><br />
-Para diminuir a quantidade de estruturas condicionais, fora retirado alguns else desnecessários reduzindo também o número de linhas. Além disso, foi removido o comentário.<br />
 <pre>
 ➜ .\cloc-1.88.exe SoilCorrection.java
        1 text file.
@@ -60,8 +73,6 @@ Java                             1             39              0            144
 </pre>
 
 <b>Classe Soma.java após modificações</b><br />
-Para diminuir a quantidade de estruturas condicionais, fora retirado alguns else desnecessários reduzindo também o número de linhas.<br />
-
 <pre>
 ➜ .\cloc-1.88.exe Soma.java
        1 text file.

@@ -53,7 +53,7 @@ A solução encontrada para sanar esse problema foi retirar alguns elses desnece
 
 <hr width=100%>
 <h3>(iv) Implementação das soluções</h3><br />
-Commit: #743efb47f315c3877189e36502922216cf6ecfb2<br />
+Commit: 743efb47f315c3877189e36502922216cf6ecfb2<br />
 
 <hr width=100%>
 <h3>(v) Código após as alterações</h3><br />

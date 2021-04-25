@@ -220,55 +220,59 @@ public class SoilCorrectionTest
     @Test
     public void testeQuantidadeAplicar(){
         SoilCorrection soil = new SoilCorrection();
+        PhosphorCorrection pc = new PhosphorCorrection();
         Soma s = new Soma();
 
-        soil.setTeorFosforoAtingir(12.0);
-        soil.setValFosforo(8.59);
-        soil.setFonteFosforo(1);
-        soil.setEficienciaFosforo(0.7);
+        pc.setTeorFosforoAtingir(12.0);
+        pc.setValFosforo(8.59);
+        pc.setFonteFosforo(1);
+        pc.setEficienciaFosforo(0.7);
         
-        Assert.assertEquals(123.95, s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), 1);
+        Assert.assertEquals(123.95, s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), soil.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc)), 1);
     }
 
     @Test
     public void testeSuperFosfatoSimples(){
         SoilCorrection soil = new SoilCorrection();
+        PhosphorCorrection pc = new PhosphorCorrection();
         Soma s = new Soma();
 
-        soil.setTeorFosforoAtingir(12.0);
-        soil.setValFosforo(8.59);
-        soil.setFonteFosforo(1);
-        soil.setEficienciaFosforo(0.7);
+        pc.setTeorFosforoAtingir(12.0);
+        pc.setValFosforo(8.59);
+        pc.setFonteFosforo(1);
+        pc.setEficienciaFosforo(0.7);
 
-        double result = ((soil.ssTeor(soil))*2*2.29*100/soil.getEficienciaFosforo()/100)*100/soil.valorFonteFosforo(soil)*2.42;
+        double result = ((pc.ssTeor(pc))*2*2.29*100/pc.getEficienciaFosforo()/100)*100/pc.valorFonteFosforo(pc)*2.42;
         
-        Assert.assertEquals(12.4, s.calculoSuperfosfatoSimples(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), result), 1);  
+        Assert.assertEquals(12.4, s.calculoSuperfosfatoSimples(pc.getfonteFosforo(), s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), soil.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc)), result), 1);  
     }
 
     @Test
     public void testeCalculoEnxofre(){
         SoilCorrection soil = new SoilCorrection();
+        PhosphorCorrection pc = new PhosphorCorrection();
         Soma s = new Soma();
 
-        soil.setTeorFosforoAtingir(12.0);
-        soil.setValFosforo(8.59);
-        soil.setFonteFosforo(1);
-        soil.setEficienciaFosforo(0.7);
+        pc.setTeorFosforoAtingir(12.0);
+        pc.setValFosforo(8.59);
+        pc.setFonteFosforo(1);
+        pc.setEficienciaFosforo(0.7);
 
-        Assert.assertEquals(34.7, s.calculoEnxofre(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil))), 1);
+        Assert.assertEquals(34.7, s.calculoEnxofre(pc.getfonteFosforo(), s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), pc.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc))), 1);
     }
 
     @Test
     public void testeCalculoCusto(){
         SoilCorrection soil = new SoilCorrection();
+        PhosphorCorrection pc = new PhosphorCorrection();
         Soma s = new Soma();
 
-        soil.setTeorFosforoAtingir(12.0);
-        soil.setValFosforo(8.59);
-        soil.setFonteFosforo(1);
-        soil.setEficienciaFosforo(0.7);
+        pc.setTeorFosforoAtingir(12.0);
+        pc.setValFosforo(8.59);
+        pc.setFonteFosforo(1);
+        pc.setEficienciaFosforo(0.7);
 
-        Assert.assertEquals(156.18, s.calculaCusto(soil.getfonteFosforo(), s.calculoQuantidadeAplicar(soil.getTeorFosforoAtingir(), soil.getValFosforo(), soil.getEficienciaFosforo(), soil.getfonteFosforo(), soil.valorFonteFosforo(soil)), 1260.0), 1);
+        Assert.assertEquals(156.18, s.calculaCusto(pc.getfonteFosforo(), s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), pc.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc)), 1260.0), 1);
     }
 
     @Test

@@ -1,10 +1,8 @@
 package com.soil;
 
 public class SoilCorrection{
-  private double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
-  private double eficienciaFosforo, teorFosforoAtingir;
-  private int texture, fonteFosforo, fontePotassioUtilizar;
-  private double[] fonteFosforoValores = {18.0, 41.0, 48.0, 45.0, 18.0, 33.0, 29.0, 32.0, 24.0, 18.5, 52.0, 18.0};
+  public double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
+  private int texture, fontePotassioUtilizar;
   private double[] fontePotassioUtilizarValores = {58.0, 52.0, 22.0, 44.0};
 
   public static void main( String[] args ){
@@ -75,30 +73,6 @@ public class SoilCorrection{
     this.valHl = valHl;
   }
 
-  public void setTeorFosforoAtingir(double teorFosforoAtingir){
-    this.teorFosforoAtingir = teorFosforoAtingir;
-  }
-
-  public double getTeorFosforoAtingir(){
-    return teorFosforoAtingir;
-  }
-
-  public void setEficienciaFosforo(double eficienciaFosforo){
-    this.eficienciaFosforo = eficienciaFosforo;
-  }
-
-  public double getEficienciaFosforo(){
-    return eficienciaFosforo;
-  }
-
-  public void setFonteFosforo(int fonteFosforo){
-    this.fonteFosforo = fonteFosforo;
-  }
-
-  public int getfonteFosforo(){
-    return fonteFosforo;
-  }
-
   public void setFontePotassioUtilizar(int fontePotassioUtilizar){
     this.fontePotassioUtilizar = fontePotassioUtilizar;
   }
@@ -144,17 +118,6 @@ public class SoilCorrection{
 
   public double valorIdealAluminio(SoilCorrection soil){
     return 0.0;
-  }
-
-  public double valorFonteFosforo(SoilCorrection soil){
-    return soil.fonteFosforoValores[soil.fonteFosforo-1];
-  }
-
-  public double ssTeor(SoilCorrection soil){
-    if((soil.teorFosforoAtingir - soil.valFosforo) < 0.01){
-      return 0.0;
-    }
-    return soil.teorFosforoAtingir - soil.valFosforo;
   }
 
   public double participacaoPotassioCTCIdeal(SoilCorrection soil){

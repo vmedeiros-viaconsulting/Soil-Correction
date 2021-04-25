@@ -4,7 +4,6 @@ public class SoilCorrection{
   public double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
   private int texture;
   
-
   public static void main( String[] args ){
     System.out.println("Bem vindo ao programa de correção de solos!");
   }

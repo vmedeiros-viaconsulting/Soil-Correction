@@ -2,55 +2,53 @@ package com.soil;
 
 public class Soma extends SoilCorrection{
   private double[] multiplicadorCalcEnxofre = {0.28, 0.2, 0.09, 0.16, 0.28, 0.52, 0.52, 0.45, 0.28, 0.44, 0.0, 0.18};
+  private double[] multiplicadorSuperFosfato = {0.15, (0.1/2.42), (0.11/2.42)};
+  private double[] multiplicadorKgHectare = {0.0, 0.17, 0.22};
   public double somaCmol(double teorPotassio, double teorCalcio, double teorMagnesio){
     double sCmol;
     
     sCmol = teorPotassio + teorCalcio + teorMagnesio;
-    if(sCmol > 0.01){
-        return sCmol;
-    }
-    return 0;
+    
+    return sCmol > 0.01 ? sCmol : 0.0;
   }
 
   public double somaCtcCmol(double teorPotassio, double teorCalcio, double teorMagnesio, double hl){
     double ctcCmol;
 
     ctcCmol = teorPotassio + teorCalcio + teorMagnesio + hl;
-    if(ctcCmol > 0.01){
-        return ctcCmol;
-    }
-    return 0;
+    
+    return ctcCmol > 0.01 ? ctcCmol : 0.0;
   }
 
   public double vAtual(double teorPotassio, double teorCalcio, double teorMagnesio, double hl){
     double v;
+    double somaTeores = teorPotassio + teorCalcio + teorMagnesio;
 
-    v = ((100*(teorPotassio + teorCalcio + teorMagnesio))/(teorPotassio + teorCalcio + teorMagnesio + hl));
+    v = ((100*(somaTeores))/(somaTeores + hl));
 
     return v;
   }
 
   // Função calculaMOPercentual desenvolvida pelo professor Gabriel Costa Silva
   double calculaMOPercentual(double mo) {
-    if (mo > 0) {
-        return mo / 10;
-    }
-    return 0.0;
+    double moResult = mo / 10;
+    
+    return mo > 0 ? moResult : 0.0;
   }
 
   // Função calculaCarbono desenvolvida pelo professor Gabriel Costa Silva
   double calculaCarbono(double moPercentual) {
-    if (moPercentual > 0) {
-        return moPercentual / 1.72 * 10;
-    }
-    return 0.0;
+    double result = moPercentual / 1.72 * 10;
+    
+    return moPercentual > 0 ? result : 0.0;
   }
 
   double calculoQuantidadeAplicar(double teorFosforoAtingir, double teorFosforo, double eficienciaFosforo, double fonteFosforo, double result){
-    if((teorFosforoAtingir-teorFosforo) < 0.01){
-      return 0;
-    }
-    return ((((teorFosforoAtingir - teorFosforo)*2*2.29)*100/eficienciaFosforo/100)*100/result);
+    double calculoTeorFosforo = (teorFosforoAtingir - teorFosforo)*2*2.29;
+    double calculoTeorEficiencia = ((calculoTeorFosforo)*100/eficienciaFosforo/100);
+    double cQuantidadeAplicar = calculoTeorEficiencia*100/result;
+    
+    return (teorFosforoAtingir - teorFosforo) < 0.01 ? 0.0 : cQuantidadeAplicar;
   }
 
   double calculoSuperfosfatoSimples(int fonteFosforo, double quantidadeAplicar, double teorCalculo){
@@ -73,20 +71,15 @@ public class Soma extends SoilCorrection{
   }
 
   double calculoQtdAplicarPotassio(double valPotassioVerificado, double valFontePotassioUtilizar){
-    double result = (((valPotassioVerificado*39.1*10)*2*1.2)*100/0.85/100)*100/valFontePotassioUtilizar;
+    double calculoPotassioVerificado = ((valPotassioVerificado*39.1*10)*2*1.2);
+    double calculoPotassioUtilizar = ((calculoPotassioVerificado)*100/0.85/100);
+    double result = (calculoPotassioUtilizar)*100/valFontePotassioUtilizar;
 
     return result;
   }
 
   double calculoKgHectare(int fontePotassioUtilizar, double quantidadeAplicarPotassio){
-    if(fontePotassioUtilizar == 1){
-      return 0;
-    }else if(fontePotassioUtilizar == 2){
-      return quantidadeAplicarPotassio*0.17;
-    }else if(fontePotassioUtilizar == 3){
-      return quantidadeAplicarPotassio*0.22;
-    }
-    return 0;
+    return quantidadeAplicarPotassio*multiplicadorKgHectare[fontePotassioUtilizar-1];
   }
 
   double calculaCustoPotassio(int fontePotassioUtilizar, double valor, double quantidadeAplicarPotassio){

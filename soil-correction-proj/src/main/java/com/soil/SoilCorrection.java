@@ -2,8 +2,8 @@ package com.soil;
 
 public class SoilCorrection{
   public double valCalcio, valEnxofre, valFosforo, valMagnesio, valPotassio, valAluminio, valHl;
-  private int texture, fontePotassioUtilizar;
-  private double[] fontePotassioUtilizarValores = {58.0, 52.0, 22.0, 44.0};
+  private int texture;
+  
 
   public static void main( String[] args ){
     System.out.println("Bem vindo ao programa de correção de solos!");
@@ -73,14 +73,6 @@ public class SoilCorrection{
     this.valHl = valHl;
   }
 
-  public void setFontePotassioUtilizar(int fontePotassioUtilizar){
-    this.fontePotassioUtilizar = fontePotassioUtilizar;
-  }
-
-  public int getFontePotassioUtilizar(){
-    return fontePotassioUtilizar;
-  }
-
   public double valorIdealFosforo(SoilCorrection soil){
     if(soil.texture == 1){
       return 9.0;
@@ -118,29 +110,5 @@ public class SoilCorrection{
 
   public double valorIdealAluminio(SoilCorrection soil){
     return 0.0;
-  }
-
-  public double participacaoPotassioCTCIdeal(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 3.0;
-    }
-    return 3.0;
-  }
-
-  public double participacaoPotassioCTC(double teorPotassio, double teorCalcio, double teorMagnesio, double teorHAl){
-    return teorPotassio/(teorCalcio+teorMagnesio+teorPotassio+teorHAl)*100;
-  }
-
-  public double verificaParticipacaoPotassio(SoilCorrection soil){
-    double result = (soil.valPotassio * soil.participacaoPotassioCTCIdeal(soil)/soil.participacaoPotassioCTC(soil.valPotassio, soil.valCalcio, soil.valMagnesio, soil.valHl))-soil.valPotassio;
-
-    if(result < 0.01){
-      return 0.0;
-    }
-    return result;
-  }
-
-  public double valorFontePotassioUtilizar(SoilCorrection soil){
-    return soil.fontePotassioUtilizarValores[soil.fontePotassioUtilizar-1];
   }
 }

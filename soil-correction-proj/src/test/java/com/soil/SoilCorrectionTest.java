@@ -277,6 +277,7 @@ public class SoilCorrectionTest
 
     @Test
     public void testParticipacaoPotassioCTC(){
+        PotassiumCorrection potC = new PotassiumCorrection();
         SoilCorrection soil = new SoilCorrection();
 
         soil.setValPotassio(0.15);
@@ -284,60 +285,60 @@ public class SoilCorrectionTest
         soil.setValMagnesio(1.63);
         soil.setValHl(5.35);
 
-        Assert.assertEquals(1.2, soil.participacaoPotassioCTC(soil.getValPotassio(), soil.getValCalcio(), soil.getValMagnesio(), soil.getValHl()), 1);
+        Assert.assertEquals(1.2, potC.participacaoPotassioCTC(soil.getValPotassio(), soil.getValCalcio(), soil.getValMagnesio(), soil.getValHl()), 1);
     }
 
     @Test
     public void testParticipacaoPotassioCTCIdeal(){
-        SoilCorrection soil = new SoilCorrection();
+        PotassiumCorrection potC = new PotassiumCorrection();
         
-        soil.setTexture(1);
+        potC.setTexture(1);
 
-        Assert.assertEquals(3.0, soil.participacaoPotassioCTCIdeal(soil), 0);
+        Assert.assertEquals(3.0, potC.participacaoPotassioCTCIdeal(), 0);
     }
 
     @Test
     public void testQuantidadeAplicadaPotassio(){
-        SoilCorrection soil = new SoilCorrection();
+        PotassiumCorrection potC = new PotassiumCorrection();
         Soma s = new Soma();
         
-        soil.setTexture(1);
-        soil.setFontePotassioUtilizar(1);
-        soil.setValPotassio(0.15);
-        soil.setValCalcio(5.76);
-        soil.setValMagnesio(1.63);
-        soil.setValHl(5.35);
+        potC.setTexture(1);
+        potC.setFontePotassioUtilizar(1);
+        potC.setValPotassio(0.15);
+        potC.setValCalcio(5.76);
+        potC.setValMagnesio(1.63);
+        potC.setValHl(5.35);
 
-        Assert.assertEquals(450.55, s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil)), 1);
+        Assert.assertEquals(450.55, s.calculoQtdAplicarPotassio(potC.verificaParticipacaoPotassio(potC), potC.valorFontePotassioUtilizar(potC)), 1);
     }
 
     @Test
     public void testKgHectare(){
-        SoilCorrection soil = new SoilCorrection();
+        PotassiumCorrection potC = new PotassiumCorrection();
         Soma s = new Soma();
 
-        soil.setTexture(1);
-        soil.setFontePotassioUtilizar(1);
-        soil.setValPotassio(0.15);
-        soil.setValCalcio(5.76);
-        soil.setValMagnesio(1.63);
-        soil.setValHl(5.35);
+        potC.setTexture(1);
+        potC.setFontePotassioUtilizar(1);
+        potC.setValPotassio(0.15);
+        potC.setValCalcio(5.76);
+        potC.setValMagnesio(1.63);
+        potC.setValHl(5.35);
 
-        Assert.assertEquals(0, s.calculoKgHectare(soil.getFontePotassioUtilizar(), s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil))), 1);
+        Assert.assertEquals(0, s.calculoKgHectare(potC.getFontePotassioUtilizar(), s.calculoQtdAplicarPotassio(potC.verificaParticipacaoPotassio(potC), potC.valorFontePotassioUtilizar(potC))), 1);
     }
 
     @Test
     public void testCalculoCustoPotassio(){
-        SoilCorrection soil = new SoilCorrection();
+        PotassiumCorrection potC = new PotassiumCorrection();
         Soma s = new Soma();
 
-        soil.setTexture(1);
-        soil.setFontePotassioUtilizar(1);
-        soil.setValPotassio(0.15);
-        soil.setValCalcio(5.76);
-        soil.setValMagnesio(1.63);
-        soil.setValHl(5.35);
+        potC.setTexture(1);
+        potC.setFontePotassioUtilizar(1);
+        potC.setValPotassio(0.15);
+        potC.setValCalcio(5.76);
+        potC.setValMagnesio(1.63);
+        potC.setValHl(5.35);
 
-        Assert.assertEquals(1126.37, s.calculaCustoPotassio(soil.getFontePotassioUtilizar(), 2500.00, s.calculoQtdAplicarPotassio(soil.verificaParticipacaoPotassio(soil), soil.valorFontePotassioUtilizar(soil))), 1);
+        Assert.assertEquals(1126.37, s.calculaCustoPotassio(potC.getFontePotassioUtilizar(), 2500.00, s.calculoQtdAplicarPotassio(potC.verificaParticipacaoPotassio(potC), potC.valorFontePotassioUtilizar(potC))), 1);
     }
 }

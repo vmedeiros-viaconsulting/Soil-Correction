@@ -219,7 +219,6 @@ public class SoilCorrectionTest
 
     @Test
     public void testeQuantidadeAplicar(){
-        SoilCorrection soil = new SoilCorrection();
         PhosphorCorrection pc = new PhosphorCorrection();
         Soma s = new Soma();
 
@@ -228,7 +227,7 @@ public class SoilCorrectionTest
         pc.setFonteFosforo(1);
         pc.setEficienciaFosforo(0.7);
         
-        Assert.assertEquals(123.95, s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), soil.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc)), 1);
+        Assert.assertEquals(123.95, s.calculoQuantidadeAplicar(pc.getTeorFosforoAtingir(), pc.getValFosforo(), pc.getEficienciaFosforo(), pc.getfonteFosforo(), pc.valorFonteFosforo(pc)), 1);
     }
 
     @Test

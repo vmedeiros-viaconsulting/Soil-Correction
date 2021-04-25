@@ -74,38 +74,23 @@ public class SoilCorrection{
   }
 
   public double valorIdealFosforo(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 9.0;
-    }
-    return 12.0;
+    return (soil.texture == 1) ? 9.0 : 12.0;
   }
 
   public double valorIdealPotassio(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 0.35;
-    }
-    return 0.25;
+    return (soil.texture == 1) ? 0.35 : 0.25;
   }
 
   public double valorIdealCalcio(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 6.0;
-    }
-    return 4.0;
+    return (soil.texture == 1) ? 6.0 : 4.0;
   }
 
   public double valorIdealMagnesio(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 1.5;
-    }
-    return 1.0;
+    return (soil.texture == 1) ? 1.5 : 1.0;
   }
 
   public double valorIdealEnxofre(SoilCorrection soil){
-    if(soil.texture == 1){
-      return 9.0;
-    }
-    return 6.0;
+    return (soil.texture == 1) ? 9.0 : 6.0;
   }
 
   public double valorIdealAluminio(SoilCorrection soil){

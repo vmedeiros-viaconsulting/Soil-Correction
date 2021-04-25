@@ -2,8 +2,10 @@ package com.soil;
 
 public class Soma extends SoilCorrection{
   private double[] multiplicadorCalcEnxofre = {0.28, 0.2, 0.09, 0.16, 0.28, 0.52, 0.52, 0.45, 0.28, 0.44, 0.0, 0.18};
-  private double[] multiplicadorSuperFosfato = {0.15, (0.1/2.42), (0.11/2.42)};
+  //private double[] multiplicadorSuperFosfato = {0.0, 0.0, 0.0, 0.0, (0.1/2.42), 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, (0.11/2.42)};
+  private double[] multiplicadorSuperFosfato = new double[12];
   private double[] multiplicadorKgHectare = {0.0, 0.17, 0.22};
+
   public double somaCmol(double teorPotassio, double teorCalcio, double teorMagnesio){
     double sCmol;
     
@@ -52,14 +54,10 @@ public class Soma extends SoilCorrection{
   }
 
   double calculoSuperfosfatoSimples(int fonteFosforo, double quantidadeAplicar, double teorCalculo){
-    if(fonteFosforo == 5){
-      return quantidadeAplicar*0.15;
-    }else if(fonteFosforo == 1){
-      return teorCalculo*0.1/2.42;
-    }else if(fonteFosforo == 12){
-      return teorCalculo*0.11/2.42;
-    }
-    return 0;
+    multiplicadorSuperFosfato[0] = (0.1/2.42);
+    multiplicadorSuperFosfato[11] = (0.11/2.42);
+
+    return (fonteFosforo == 5) ? quantidadeAplicar*0.15 : teorCalculo*(multiplicadorSuperFosfato[fonteFosforo-1]);
   }
 
   double calculoEnxofre(int fonteFosforo, double quantidadeAplicar){
